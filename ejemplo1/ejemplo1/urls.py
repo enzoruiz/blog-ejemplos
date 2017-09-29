@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from inicio.views import LoginView
+from django.contrib.auth.views import logout
+from inicio.views import LoginView, HomeView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('', include('social_django.urls', namespace='social')),
-    url(r'^login$', LoginView.as_view(),
-        kwargs={'redirect_authenticated_user': True}, name='login'),
+    url(r'^login$', LoginView.as_view(), name='login'),
+    url(r'^home$', HomeView.as_view(), name='home'),
+    url(r'^logout$', logout, name='logout'),
 ]

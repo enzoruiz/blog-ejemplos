@@ -5,6 +5,6 @@
         <title></title>
     </head>
     <body>
-        <h1>Hola {{ request.user }}!</h1>
+        <h1>Hola {{ request.user.first_name }} {{ request.user.last_name }}!</h1>
     </body>
 </html>
